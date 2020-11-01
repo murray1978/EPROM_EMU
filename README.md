@@ -1,5 +1,5 @@
 # EPROM_EMU
-EPROM Emulator for [Sergey's] (http://www.malinov.com/Home/sergeys-projects/minimax8085)8085 board 
+EPROM Emulator for [Sergey's](http://www.malinov.com/Home/sergeys-projects/minimax8085) 8085 board 
 
 ## Mistakes
 1. 40 Pin header currently around the wrong way,mount the header under the board and solder from the top, then mount the 8085 board underneath, db9 connector facing south
