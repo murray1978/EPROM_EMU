@@ -1,4 +1,4 @@
-;EPROM emulator for 8085, specifically sergey's 8085,
+; EPROM emulator for 8085, specifically sergey's 8085,
 ; 8251A on Ports 8(status) 9(data)
 ; emulator ports 10(command) and 11(data)
 ; commands 0H, halt?
@@ -22,9 +22,11 @@
 ;
 ; Reading from serial
 ;	commands
-;		'p 0xnnnn'	program from zero to 0xnnnn
+;	'p nnnn'	program from zero to nnnn, n in hex ie ffff
+; More ideas to follow
+; =================CODE reused from monitor source ========================== 
 ROM 	EQU 0000H
-DRAM	EQU	0FFA0h
+DRAM	EQU 0FFA0h
 
 org DRAM
 
@@ -147,5 +149,15 @@ INIT:	XRA	A		; Insure not setup mode
 	MVI	A,00110111b	; RTS,DTR,Enable RX,TX
 	OUT	9		; Write it
 	RET
-	
+
+; ========================= Fresh code ==================================
 MAIN:
+; c code for a bit
+; while( !serial_available() );		//wait for serial in put
+;
+;  char command_string[MAX_STRING];
+;  for( int i = 0; i < MAX_STRING; i++)
+;  {
+;	c[i] = serial_get();
+;	if( c[i] == '\n' )break;
+; {	
