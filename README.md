@@ -9,6 +9,7 @@ EPROM Emulator for [Sergey's](http://www.malinov.com/Home/sergeys-projects/minim
    Grounds not connected on C7, C8, C9, C10, C11
    5V not connected on C2, C3, C4, C5, C7, C8, C10, C11, C12, C14
 5. possibly other error's yet to be found.
+6. A1 pin is reduntant 
 
 ## Substitutions 
 1. U1 can be replaced with a 74LS138
