@@ -1,5 +1,6 @@
 # EPROM_EMU
-EPROM Emulator for [Sergey's](http://www.malinov.com/Home/sergeys-projects/minimax8085) 8085 board,
+EPROM Emulator for [Sergey's](http://www.malinov.com/Home/sergeys-projects/minimax8085) 8085 board, This is the first revision.
+Second revison is in progress, 12/5/21
 
 ## Mistakes
 1. The 40 Pin header for the 8085 is currently around the wrong way,mount the header under the board and solder from the top, then mount the 8085 board underneath, db9 connector facing south
@@ -10,6 +11,7 @@ EPROM Emulator for [Sergey's](http://www.malinov.com/Home/sergeys-projects/minim
    5V not connected on C2, C3, C4, C5, C7, C8, C10, C11, C12, C14
 5. possibly other error's yet to be found.
 6. A1 pin is reduntant 
+7. IC1 (74LS137), Pins 9 and 7, will never get triggered, the correct connections are pins 15 and 14, solder a jumper bridge between 9 to 15 and 7 to 14.
 
 ## Substitutions 
 1. U1 can be replaced with a 74LS138
