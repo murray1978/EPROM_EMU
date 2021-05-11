@@ -1,0 +1,102 @@
+
+(rules PCB wmu
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 5368)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 3.2)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 1.5)
+    )
+  )
+  (rule
+    (width 400.0)
+    (clear 200.2)
+    (clear 125.0 (type smd_to_turn_gap))
+    (clear 50.0 (type smd_smd))
+  )
+  (padstack "Via[0-1]_800:400_um"
+    (shape
+      (circle F.Cu 800.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 800.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (padstack "Via[0-1]_6000:4000_um"
+    (shape
+      (circle F.Cu 6000.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 6000.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_800:400_um" "Via[0-1]_800:400_um" default
+  )
+  (via 
+    "Via[0-1]_6000:4000_um" "Via[0-1]_6000:4000_um" default
+  )
+  (via 
+    "Via[0-1]_800:400_um-kicad_default" "Via[0-1]_800:400_um" "kicad_default"
+  )
+  (via 
+    "Via[0-1]_6000:4000_um-kicad_default" "Via[0-1]_6000:4000_um" "kicad_default"
+  )
+  (via_rule
+    default "Via[0-1]_800:400_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_800:400_um-kicad_default"
+  )
+  (class default
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 400.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    GND 5V A4 A0 ~WR D6 D7 D4
+    D5 D2 D3 D0 D1 SA0 SA1 SA2
+    SA3 SA4 SA5 SA6 SA7 SA8 SA9 SA10
+    SA11 SA12 SA13 SA14 ~SCE ~SOE SD7 SD6
+    SD5 SD4 SD3 SD2 SD1 SD0 ~Program ~write
+    ~select "ADD_CLK" "RESET_E" "PGM_TGT" EA0 EA3 EA1 EA2
+    EA4 EA7 EA5 EA6 EA8 EA11 EA9 EA10
+    EA12 EA13 EA14 "Net-(U10-Pad9)" "Net-(U10-Pad7)" "Net-(U10-Pad10)" "Net-(U10-Pad8)" "Net-(U10-Pad5)"
+    "Net-(U10-Pad3)" "Net-(U10-Pad6)" "Net-(U10-Pad4)" "Net-(U10-Pad24)" "Net-(U10-Pad23)" "Net-(U10-Pad25)" "Net-(U10-Pad21)" "Net-(U10-Pad26)"
+    "Net-(U10-Pad20)" "Net-(U10-Pad2)" "Net-(U10-Pad1)" "Net-(U10-Pad19)" "Net-(U10-Pad18)" "Net-(U10-Pad17)" "Net-(U13-Pad2)" IO~MEM
+    A1 "~DATA_PORT" "Net-(U12-Pad1)" "Net-(U13-Pad12)" "Net-(U1-Pad6)" "Net-(U10-Pad13)" "Net-(U10-Pad12)" "Net-(U10-Pad11)"
+    "Net-(U10-Pad22)" "Net-(U10-Pad16)" "Net-(U10-Pad15)" "Net-(U13-Pad11)"
+    (clearance_class "kicad_default")
+    (via_rule kicad_default)
+    (rule
+      (width 400.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)
